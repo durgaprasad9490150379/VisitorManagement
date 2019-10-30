@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".CheckInActivity">
+
+
+    <Button
+        android:id="@+id/visitor"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="198dp"
+        android:layout_marginRight="118dp"
+        android:background="@drawable/btn_visitors"
+        android:drawableLeft="@drawable/visitoricon"
+        android:drawableRight="@drawable/right"
+        android:text="Visitor"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:fontFamily="serif"
+     />
+    <Button
+        android:id="@+id/vendor"
+        android:background="@drawable/btn_visitors"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/visitor"
+        android:layout_alignStart="@+id/visitor"
+        android:layout_alignEnd="@+id/visitor"
+        android:layout_below="@+id/visitor"
+        android:drawableLeft="@drawable/vendoricon"
+        android:drawableRight="@drawable/right"
+        android:layout_marginTop="30dp"
+        android:text="Vendor"
+        android:textSize="30dp"
+        android:fontFamily="serif"
+        android:textAllCaps="false"
+
+        />
+    <Button
+        android:id="@+id/employee"
+        android:background="@drawable/btn_visitors"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/vendor"
+        android:layout_alignStart="@+id/vendor"
+        android:layout_alignEnd="@+id/vendor"
+        android:layout_below="@+id/vendor"
+        android:drawableLeft="@drawable/emp"
+        android:drawableRight="@drawable/right"
+        android:layout_marginTop="30dp"
+        android:text="Employee"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:selectAllOnFocus="true"
+        android:fontFamily="serif"
+
+        />
+    <Button
+        android:id="@+id/Vehicle"
+        android:background="@drawable/btn_visitors"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/employee"
+        android:layout_alignStart="@+id/employee"
+        android:layout_alignEnd="@+id/employee"
+        android:layout_below="@+id/employee"
+        android:drawableLeft="@drawable/vehicleicon"
+        android:drawableRight="@drawable/right"
+        android:layout_marginTop="30dp"
+        android:text="Vehicle"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:fontFamily="serif"
+        />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+

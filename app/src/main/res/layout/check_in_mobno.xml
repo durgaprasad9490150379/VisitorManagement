@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CheckInActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your mobile number"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="150dp"
+        android:textColor="@android:color/black"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/btn_view"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_visitors"
+        android:drawableLeft="@drawable/flag"
+        android:text="+91"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:fontFamily="serif"
+        />
+    <EditText
+        android:id="@+id/mob_no"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:background="@drawable/edit_text_bg"
+        android:layout_alignLeft="@+id/btn_view"
+        android:layout_toRightOf="@+id/btn_view"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="220dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="#fc3404"
+        android:inputType="number"
+        android:textSize="30dp"
+        />
+    <Button
+        android:id="@+id/sendotp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Send OTP"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/mob_no"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="55dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+

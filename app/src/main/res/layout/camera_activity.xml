@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_capture"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="400dp"
+        android:src="@drawable/camera"
+        />
+
+
+
+    <Button
+        android:id="@+id/CamptureImage"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Take A Selfie"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/mob_no"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/next_to_govt"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Next"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/mob_no"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+</LinearLayout>
+</ScrollView>

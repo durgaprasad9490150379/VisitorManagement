@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scroll"
+    android:fillViewport="false">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preview_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#effbf6"
+    tools:context=".PreviewActivity">
+
+    <TextView
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="319dp"
+        android:text="Id:"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+    <TextView
+        android:id="@+id/gen_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text1"
+        android:layout_marginTop="30dp"
+        android:text="0001"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_alignStart="@+id/text1"
+        android:layout_alignEnd="@+id/text1"
+        android:layout_below="@+id/text1"
+        android:layout_marginTop="10dp"
+        android:text="First Name:"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily=""/>
+    <TextView
+        android:id="@+id/f_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text2"
+        android:layout_below="@+id/gen_id"
+        android:layout_marginTop="10dp"
+        android:text="Durga Prasad"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"
+        />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text2"
+        android:layout_alignStart="@+id/text2"
+        android:layout_alignEnd="@+id/text2"
+        android:layout_below="@+id/text2"
+        android:layout_marginTop="10dp"
+        android:text="Last Name:"
+        android:textSize="40dp"
+        android:fontFamily="serif"
+        android:textColor="#3f3110"
+        />
+    <TextView
+        android:id="@+id/l_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text3"
+        android:layout_below="@+id/f_name"
+        android:layout_marginTop="10dp"
+        android:text="Dwarapureddi"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text3"
+        android:layout_alignStart="@+id/text3"
+        android:layout_alignEnd="@+id/text3"
+        android:layout_below="@+id/text3"
+        android:layout_marginTop="10dp"
+        android:text="Mobile No:"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text4"
+        android:layout_below="@+id/l_name"
+        android:layout_marginTop="10dp"
+        android:text="9490150379"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text4"
+        android:layout_alignStart="@+id/text4"
+        android:layout_alignEnd="@+id/text4"
+        android:layout_below="@+id/text4"
+        android:layout_marginTop="10dp"
+        android:text="Email:"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/text5"
+        android:layout_below="@+id/mobile"
+        android:layout_marginTop="10dp"
+        android:text="durgaprasad@gmail.com"
+        android:textSize="40dp"
+        android:textColor="#3f3110"
+        android:fontFamily="serif"/>
+
+    <ImageView
+        android:id="@+id/img_src"
+        android:src="@drawable/user"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="450dp"/>
+    <ImageView
+        android:id="@+id/id_src"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_toRightOf="@+id/img_src"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="450dp"
+        android:src="@drawable/user"/>
+    <Button
+        android:id="@+id/print"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Print"
+        android:textSize="35dp"
+        android:background="@drawable/btn_preview"
+        android:layout_marginTop="720dp"
+        android:layout_marginLeft="150dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-medium"
+
+        />
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_toRightOf="@+id/print"
+        android:background="@drawable/btn_preview"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:layout_marginTop="720dp"
+        android:layout_marginLeft="25dp"
+        />
+
+    />
+</RelativeLayout>
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
