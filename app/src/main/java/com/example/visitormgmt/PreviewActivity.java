@@ -41,6 +41,9 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Text;
 
@@ -309,8 +312,14 @@ public class PreviewActivity extends AppCompatActivity {
                     post.setText("" + response.toString());
                     return;
                 }else{
-
-                    post.setText("In onResponse" + response.body());
+                    String rawdata = "" + response.body().toString();
+                    String[] seperate = rawdata.split("=");
+                    String data = seperate[1];
+                    String[] seperate1 = data.split(",");
+                    float f = (Float.valueOf(seperate1[0])).floatValue();
+                    int id = (int)(f);
+                    visitor_id =  String.valueOf(id);
+                    createPostImage(visitor_id);
                 }
 
             }
@@ -323,8 +332,13 @@ public class PreviewActivity extends AppCompatActivity {
         });
 
 
+    }
 
-                HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+
+    private void createPostImage(String id){
+
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
@@ -334,25 +348,17 @@ public class PreviewActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface uploadInterface = retrofitUploader.create(ApiInterface.class);
-
-
-
-//        String root = Environment.getExternalStorageDirectory().toString();
-//        File file = new File(root + "/Test/test.jpg");
-//
-//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-
-        File file  = new File("/mnt/sdcard/Android/data/com.example.visitormgmt/files/Pictures/96404231276176629463060110249.jpg");
+        File file  = new File("/mnt/sdcard/Android/data/com.example.visitormgmt/files/Pictures/20191031_102142_3464801766468716295.jpg");
         Log.d("Upload", file.getAbsolutePath());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
-
         MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("files", file.getName(),
                 requestBody
 
         );
+        post.setText(""+ visitor_id);
         RequestBody ref = RequestBody.create(MediaType.parse("text/plain"), "visitor");
-        RequestBody refId = RequestBody.create(MediaType.parse("text/plain"), "196");
+        RequestBody refId = RequestBody.create(MediaType.parse("text/plain"), id);
         RequestBody field = RequestBody.create(MediaType.parse("text/plain"), "Photo");
 
 
@@ -364,7 +370,7 @@ public class PreviewActivity extends AppCompatActivity {
                 ref,
                 refId,
                 field
-                );
+        );
 
         call_img.enqueue(new Callback<Object>() {
             @Override
@@ -390,17 +396,13 @@ public class PreviewActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
         if (Build.VERSION.SDK_INT >= 23) {
             String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
             if (ContextCompat.checkSelfPermission(PreviewActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions((Activity) PreviewActivity.this, PERMISSIONS, REQUEST);
             }
         }
+
 
     }
 
