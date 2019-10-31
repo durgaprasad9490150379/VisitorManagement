@@ -72,7 +72,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PreviewActivity extends AppCompatActivity {
 
-    public String fname, lname, mobile, email1, image, idproof, company,image_path;
+    public String fname, lname, mobile, email1, image, idproof, company,image_path, idproof_path;
     Bitmap img_src, id_src;
     TextView f_name, l_name, mobile_no, email_id, post;
     ImageView img1, img2;
@@ -113,6 +113,7 @@ public class PreviewActivity extends AppCompatActivity {
         company = sharedpreferences.getString("Company", "");
         idproof = sharedpreferences.getString("IdProof", "");
         image_path = sharedpreferences.getString("ImagePath", "");
+        idproof_path = sharedpreferences.getString("IdProofPath", "");
 
         createPost();
         //[updating QR code function] //[Geting data which is entered by user using shared preferences which is stored previous page]
@@ -321,6 +322,7 @@ public class PreviewActivity extends AppCompatActivity {
                     String visitorId = response.body().getid();
                     post.setText("In on Response" + visitorId);
                     createPostImage(visitorId);
+                    createPostIdProof(visitorId);
                 }
 
             }
@@ -394,15 +396,75 @@ public class PreviewActivity extends AppCompatActivity {
             }
         });
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
-            if (ContextCompat.checkSelfPermission(PreviewActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions((Activity) PreviewActivity.this, PERMISSIONS, REQUEST);
-            }
-        }
+
 
 
     }
+
+
+    private void createPostIdProof(String id){
+
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+        Retrofit retrofitUploader = new Retrofit.Builder()
+                .client(client)
+                .baseUrl("http://192.168.100.122:1337/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface uploadInterface = retrofitUploader.create(ApiInterface.class);
+        File file  = new File(idproof_path);
+        Log.d("Upload", file.getAbsolutePath());
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("files", file.getName(),
+                requestBody
+
+        );
+        RequestBody ref = RequestBody.create(MediaType.parse("text/plain"), "visitor");
+        RequestBody refId = RequestBody.create(MediaType.parse("text/plain"), id);
+        RequestBody field = RequestBody.create(MediaType.parse("text/plain"), "idProof");
+
+
+        Call<Object> call_img = uploadInterface.uploadImagePost(
+                token,
+                fileToUpload,
+                ref,
+                refId,
+                field
+        );
+
+        call_img.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+
+                if (!response.isSuccessful()) {
+//                    textViewResult2.setText(">>" + response.raw().toString());
+                    System.out.println(response.raw().toString());
+                    return;
+                }else{
+
+//                    textViewResult2.setText(">>>>>>>>>>>>>>>>>>>" + response.toString());
+                    System.out.println(response.toString());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                t.printStackTrace();
+//                textViewResult2.setText("onFailure " + t.toString());
+            }
+        });
+
+
+
+
+    }
+
 
 
 

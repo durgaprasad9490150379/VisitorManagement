@@ -56,7 +56,6 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
     private static final int CAMERA_REQUEST_CODE = 1450;
     private static final int CAMERA_PERMISSION_CODE = 1460;
     private String mCurrentPhotoPath;
-    public String visitor_id;
 
     SharedPreferences sharedpreferences;
 
