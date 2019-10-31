@@ -360,9 +360,7 @@ public class PreviewActivity extends AppCompatActivity {
         RequestBody ref = RequestBody.create(MediaType.parse("text/plain"), "visitor");
         RequestBody refId = RequestBody.create(MediaType.parse("text/plain"), id);
         RequestBody field = RequestBody.create(MediaType.parse("text/plain"), "Photo");
-
-
-
+        
 
         Call<Object> call_img = uploadInterface.uploadImagePost(
                 token,
