@@ -181,8 +181,7 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
         String imageFileName = timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
-        editor.putString("ImageName", imageFileName);
-        editor.apply();
+
 
 
         File image = File.createTempFile(
@@ -194,6 +193,8 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
+        editor.putString("ImagePath", mCurrentPhotoPath);
+        editor.apply();
         return image;
     }
 

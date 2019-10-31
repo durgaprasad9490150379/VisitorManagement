@@ -72,7 +72,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PreviewActivity extends AppCompatActivity {
 
-    public String fname, lname, mobile, email1, image, idproof, company, visitor_id, image_name;
+    public String fname, lname, mobile, email1, image, idproof, company,image_path;
     Bitmap img_src, id_src;
     TextView f_name, l_name, mobile_no, email_id, post;
     ImageView img1, img2;
@@ -112,7 +112,7 @@ public class PreviewActivity extends AppCompatActivity {
         image = sharedpreferences.getString("Image", "");
         company = sharedpreferences.getString("Company", "");
         idproof = sharedpreferences.getString("IdProof", "");
-        image_name = sharedpreferences.getString("ImageName", "");
+        image_path = sharedpreferences.getString("ImagePath", "");
 
         createPost();
         //[updating QR code function] //[Geting data which is entered by user using shared preferences which is stored previous page]
@@ -349,7 +349,7 @@ public class PreviewActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface uploadInterface = retrofitUploader.create(ApiInterface.class);
-        File file  = new File("/mnt/sdcard/Android/data/com.example.visitormgmt/files/Pictures/20191031_133629_5130672601479755072.jpg");
+        File file  = new File(image_path);
         Log.d("Upload", file.getAbsolutePath());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
