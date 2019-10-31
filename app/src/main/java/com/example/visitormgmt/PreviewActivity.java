@@ -35,7 +35,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -52,6 +55,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
@@ -302,30 +306,27 @@ public class PreviewActivity extends AppCompatActivity {
         fields.addProperty("organization", company);
 
 
-        Call<Object> call = ApiInterfaceObject.createPost( token, fields);
+        Call<Post> call = ApiInterfaceObject.createPost( token, fields);
 
-        call.enqueue(new Callback<Object>() {
+        call.enqueue(new Callback<Post>() {
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
+            public void onResponse(Call<Post> call, Response<Post> response) {
+
                 // textViewResult.setText();
                 if (!response.isSuccessful()) {
                     post.setText("" + response.toString());
                     return;
                 }else{
-                    String rawdata = "" + response.body().toString();
-                    String[] seperate = rawdata.split("=");
-                    String data = seperate[1];
-                    String[] seperate1 = data.split(",");
-                    float f = (Float.valueOf(seperate1[0])).floatValue();
-                    int id = (int)(f);
-                    visitor_id =  String.valueOf(id);
-                    createPostImage(visitor_id);
+
+                    String visitorId = response.body().getid();
+                    post.setText("In on Response" + visitorId);
+                    createPostImage(visitorId);
                 }
 
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void onFailure(Call<Post> call, Throwable t) {
                 t.printStackTrace();
                 post.setText("Failure >>>>>>>>>>>>>>>" + t.toString());
             }
@@ -348,7 +349,7 @@ public class PreviewActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface uploadInterface = retrofitUploader.create(ApiInterface.class);
-        File file  = new File("/mnt/sdcard/Android/data/com.example.visitormgmt/files/Pictures/20191031_102142_3464801766468716295.jpg");
+        File file  = new File("/mnt/sdcard/Android/data/com.example.visitormgmt/files/Pictures/20191031_133629_5130672601479755072.jpg");
         Log.d("Upload", file.getAbsolutePath());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
@@ -356,11 +357,10 @@ public class PreviewActivity extends AppCompatActivity {
                 requestBody
 
         );
-        post.setText(""+ visitor_id);
         RequestBody ref = RequestBody.create(MediaType.parse("text/plain"), "visitor");
         RequestBody refId = RequestBody.create(MediaType.parse("text/plain"), id);
         RequestBody field = RequestBody.create(MediaType.parse("text/plain"), "Photo");
-        
+
 
         Call<Object> call_img = uploadInterface.uploadImagePost(
                 token,

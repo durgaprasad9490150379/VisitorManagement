@@ -27,6 +27,6 @@ public interface ApiInterface {
     );
     @Headers({"Content-Type: application/json;charset=Utf-8"})
     @POST("visitors")
-    Call<Object> createPost( @Header("Authorization") String Authorization, @Body JsonObject fields);
+    Call<Post> createPost( @Header("Authorization") String Authorization, @Body JsonObject fields);
 
 }
