@@ -82,7 +82,7 @@ public class PreviewActivity extends AppCompatActivity {
 
     private static final int REQUEST = 112;
     private ApiInterface ApiInterfaceObject;
-    public String token = "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNTcxMjA4MjkyLCJleHAiOjE1NzM4MDAyOTJ9.fxBbFQ29gqQ-vPRDws0zHKIw3l0tEdB0rEfBvaJSVfs";
+    public String token = "Bearer "+"API key";
 
 
 
