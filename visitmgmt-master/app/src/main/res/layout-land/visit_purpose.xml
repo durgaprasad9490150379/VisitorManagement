@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_below="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Please fill following information"
+        android:textSize="25dp"
+        android:textColor="#1db4ed"
+        android:textAllCaps="false"/>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/cname_txt"
+        android:layout_below="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/company_name"
+            android:layout_width="450dp"
+            android:layout_height="70dp"
+            android:textSize="30dp"
+            android:hint=" Company name"
+            android:textColor="#1db4ed"
+            android:background="@drawable/curves"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/validateCompanyName"
+        android:layout_below="@+id/cname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_red_dark"
+        />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/Dname_txt"
+        android:layout_below="@+id/validateCompanyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dept_txt"
+            android:layout_width="450dp"
+            android:layout_height="70dp"
+            android:textSize="30dp"
+            android:hint="Department"
+            android:textColor="#1db4ed"
+            android:background="@drawable/curves"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/validateLastName"
+        android:layout_below="@+id/Dname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_red_dark"
+        />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/meet_whom"
+        android:layout_below="@+id/validateLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/meet_whom_txt"
+            android:layout_width="450dp"
+            android:layout_height="70dp"
+            android:textSize="30dp"
+            android:hint="With whom you want to meet"
+            android:textColor="#1db4ed"
+            android:background="@drawable/curves"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/validateMeet"
+        android:layout_below="@+id/Dname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_red_dark"
+        />
+
+    <TextView
+        android:id="@+id/purposes"
+        android:layout_alignStart="@+id/meet_whom"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/meet_whom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="80dp"
+        android:text="Purpose"
+        android:textSize="25sp"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/purpose"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/radioPurpose"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioPersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal"
+            android:textSize="20sp"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioOffical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offical"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radioVendor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vendor"
+            android:textSize="20sp"
+             />
+        <RadioButton
+            android:id="@+id/radioPartner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partner"
+            android:textSize="20sp"
+             />
+
+    </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/meet_whom"
+        android:id="@+id/purpose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:checkedButton="@id/btnOff"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/btnOff"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Official"
+                android:textSize="25sp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnPer"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:text="Personal"
+                android:textSize="25sp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnVen"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:text="Vendor"
+                android:textSize="25sp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnPart"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:text="Partner"
+                android:textSize="25sp"
+                android:textAllCaps="false"/>
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fotter"
+        android:background="@drawable/otp_btn"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:id="@+id/fotter"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientcolor"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by exzaTech Consulting and Services Pvt Ltd."
+            android:textSize="22dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/forntstyle"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

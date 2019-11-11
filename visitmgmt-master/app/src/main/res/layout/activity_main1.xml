@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/header"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:background="@drawable/gradientcolor">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/logo"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/watermark"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_alignParentLeft="true"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    />-->
+
+
+<!--        </RelativeLayout>-->
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logomain"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+
+
+
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_below="@+id/heading"-->
+<!--            >-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/logo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+
+                    >
+
+                        <TextView
+                            android:id="@+id/heading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="Create an account for user"
+                            android:textSize="30dp"
+                            android:fontFamily="@font/forntstyle"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="15dp"
+                            android:textColor="#000000"
+                            android:textAllCaps="false"/>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:id="@+id/username"
+                            android:layout_below="@+id/heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_horizontal"
+                            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                            >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/username_txt"
+                                    android:layout_width="450dp"
+                                    android:layout_height="60dp"
+                                    android:textSize="30dp"
+                                    android:hint=" Username"
+                                    android:textColor="#000000"
+                                    android:inputType="text"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/curves"/>
+                                <TextView
+                                    android:id="@+id/validateUsername"
+                                    android:layout_below="@+id/username"
+                                    android:layout_width="450dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Please enter username"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="20dp"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+
+                                    />
+
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:id="@+id/email"
+                            android:layout_below="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_horizontal"
+                            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                            >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/email_txt"
+                                    android:layout_width="450dp"
+                                    android:layout_height="60dp"
+                                    android:textSize="30dp"
+                                    android:hint=" Email"
+                                    android:textColor="#000000"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/curves"
+                                    android:inputType="textEmailAddress"/>
+                                <TextView
+                                    android:id="@+id/validateEmail"
+                                    android:layout_below="@+id/email_txt"
+                                    android:layout_width="450dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Please enter email"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:textSize="20dp"/>
+
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:id="@+id/empid"
+                            android:layout_below="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_horizontal"
+                            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                            >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/emp_id"
+                                    android:layout_width="450dp"
+                                    android:layout_height="60dp"
+                                    android:textSize="30dp"
+                                    android:hint=" Employee Id"
+                                    android:textColor="#000000"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/curves"
+                                    android:inputType="text"/>
+                                <TextView
+                                    android:id="@+id/validateEmpId"
+                                    android:layout_below="@+id/emp_id"
+                                    android:layout_width="450dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Please enter emplyoyee id"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:textSize="20dp"/>
+
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:id="@+id/password"
+                            android:layout_below="@+id/empid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_horizontal"
+                            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                            app:passwordToggleEnabled="true"
+                            >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pass_word"
+                                    android:layout_width="450dp"
+                                    android:layout_height="60dp"
+                                    android:textSize="30dp"
+                                    android:hint=" Password"
+                                    android:textColor="#000000"
+                                    android:inputType="textPassword"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/curves"/>
+                                <TextView
+                                    android:id="@+id/validatePassword"
+                                    android:layout_below="@+id/pass_word"
+                                    android:layout_width="450dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Please enter password"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:textSize="20dp"/>
+
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:id="@+id/confirm_password"
+                            android:layout_below="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_horizontal"
+                            app:passwordToggleEnabled="true"
+                            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                            >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/confirm_pass_word"
+                                    android:layout_width="450dp"
+                                    android:layout_height="60dp"
+                                    android:textSize="30dp"
+                                    android:hint=" Confirm Password"
+                                    android:textColor="#1db4ed"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/curves"/>
+                                <TextView
+                                    android:id="@+id/validateConfirmPwd"
+                                    android:layout_below="@+id/confirm_pass_word"
+                                    android:layout_width="450dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Please confirm password"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:layout_centerHorizontal="true"
+                                    android:fontFamily="@font/forntstyle"
+                                    android:textStyle="bold"
+                                    android:textSize="20dp"/>
+
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                        <Button
+                            android:id="@+id/Register"
+                            android:layout_width="200dp"
+                            android:layout_height="60dp"
+                            android:layout_below="@+id/confirm_password"
+                            android:background="@drawable/otp_btn"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="35dp"
+                            android:text="REGISTER NOW"
+                            android:fontFamily="@font/forntstyle"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="28dp" />
+
+                        <TextView
+                            android:id="@+id/Thankyou"
+                            android:layout_below="@+id/Register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@android:color/black"
+                                />
+
+
+
+
+                </RelativeLayout>
+
+
+
+
+
+<!--        </ScrollView>-->
+
+
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/fotter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="@drawable/gradientcolor"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:gravity="bottom">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Powered by exzaTech Consulting and Services Pvt Ltd."-->
+<!--                    android:textSize="22dp"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:fontFamily="@font/forntstyle"-->
+<!--                    />-->
+
+<!--        </LinearLayout>-->
+
+</RelativeLayout>

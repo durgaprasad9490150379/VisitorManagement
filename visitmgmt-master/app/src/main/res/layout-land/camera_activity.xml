@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/image_capture"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="250dp"
+        android:src="@drawable/camera"
+        />
+
+
+
+    <Button
+        android:id="@+id/CamptureImage"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Take A Selfie"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/mob_no"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/next_to_govt"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Next"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/mob_no"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/fotter"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical"
+            android:background="@drawable/gradientcolor"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Powered by exzaTech Consulting and Services Pvt Ltd."
+                android:textSize="22dp"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/forntstyle"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>

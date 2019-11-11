@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".CheckInActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:textSize="28dp"
+        android:textAlignment="center"
+        android:text="Please enter your mobile number"/>
+
+    <Button
+        android:id="@+id/btn_view"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_visitors"
+        android:drawableLeft="@drawable/flag"
+        android:fontFamily="serif"
+        android:text="+91"
+        android:textAllCaps="false"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/mob_no"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:background="@drawable/edit_text_bg"
+        android:layout_alignLeft="@+id/btn_view"
+        android:layout_toRightOf="@+id/btn_view"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="220dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="#fc3404"
+        android:inputType="number"
+        android:textSize="30dp"
+        />
+
+
+    <TextView
+        android:id="@+id/validationform"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btn_view"
+        android:layout_toRightOf="@+id/btn_view"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="#FF0000"
+        android:textSize="20dp"
+        android:layout_below="@id/mob_no"/>
+    <Button
+        android:id="@+id/sendotp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Send OTP"
+        android:layout_centerInParent="true"
+        android:drawableRight="@drawable/arrowhite"
+        android:layout_below="@+id/validationform"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientcolor"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by exzaTech Consulting and Services Pvt Ltd."
+            android:textSize="22dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/forntstyle"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
