@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="45dp"
+        android:gravity="center"
+        >
+
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Please fill following information"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textAllCaps="false"/>
+
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/material_spinner1"
+            android:layout_below="@+id/heading"
+            android:layout_marginTop="24dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:textSize="25dp"
+            app:met_floatingLabel="normal"
+            android:textColorHint="#CFD8DC"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            app:met_floatingLabelTextSize="20dp"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+
+            />
+
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/fname_txt"
+            android:layout_below="@+id/heading"
+            android:layout_toRightOf="@+id/material_spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:hint="First Name"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/f_name_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:scrollHorizontally="true"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/validateFirstName"
+            android:layout_below="@+id/fname_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_red_dark"
+            />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/lname_txt"
+            android:layout_below="@+id/validateFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:hint="Last Name"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/l_name_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:maxLines="1"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateLastName"
+            android:layout_below="@+id/lname_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_red_dark"
+            />
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_below="@+id/validateLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            android:hint="Email"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateEmail"
+            android:layout_below="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address"
+            android:layout_below="@+id/validateEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            android:hint="Address"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:scrollHorizontally="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateAddress"
+            android:layout_below="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city"
+            android:layout_below="@+id/validateAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            android:hint="City"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/city_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:scrollHorizontally="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateCity"
+            android:layout_below="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/state"
+            android:layout_below="@+id/validateCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            android:hint="State"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/state_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:scrollHorizontally="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateState"
+            android:layout_below="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/country"
+            android:layout_below="@+id/validateState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            android:hint="Country"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/country_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:scrollHorizontally="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/validateCountry"
+            android:layout_below="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+
+
+
+
+        <Button
+            android:id="@+id/next"
+            android:layout_below="@+id/validateCountry"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/otp_btn"
+            android:layout_marginTop="25dp"
+            android:text="Take a Photo"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/fotter"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientcolor"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by exzaTech Consulting and Services Pvt Ltd."
+            android:textSize="22dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/forntstyle"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/fname_txt"-->
+    <!--android:layout_below="@+id/heading"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/f_name_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" First Name"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/validateFirstName"-->
+    <!--android:layout_below="@+id/fname_txt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--    />-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/lname_txt"-->
+    <!--android:layout_below="@+id/validateFirstName"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/l_name_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" Last Name"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/validateLastName"-->
+    <!--android:layout_below="@+id/lname_txt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--    />-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/email"-->
+    <!--android:layout_below="@+id/validateLastName"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/email_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" Email"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+    <!--<TextView-->
+    <!--android:id="@+id/validateEmail"-->
+    <!--android:layout_below="@+id/email"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"/>-->
+
+
+
+    <!--<Button-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:layout_below="@+id/next"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="12dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--android:hint="Filled box(default)">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    />-->
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+
+
+
+	
+	
+	

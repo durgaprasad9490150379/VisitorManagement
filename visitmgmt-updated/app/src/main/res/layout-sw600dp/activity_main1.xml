@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ededed"
+    >
+
+
+
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/wel_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:layout_marginTop="100dp"-->
+        <!--            >-->
+        <!--           -->
+
+        <!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:id="@+id/welcome"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_marginTop="90dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:text="Welcome"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:textSize="70dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:textColor="#000000"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:fontFamily="@font/athiti_font_dosis"/>&ndash;&gt;-->
+
+
+        <!--        </LinearLayout>-->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            >
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logomain"
+                    android:layout_centerHorizontal="true"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/check_in"
+                    android:layout_below="@+id/logo"
+                    android:layout_width="350dp"
+                    android:layout_height="90dp"
+                    android:text="Visitor-In"
+                    android:textSize="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/btn_check"
+                    android:drawableRight="@drawable/checkin"
+                    android:drawablePadding="2dip"
+                    android:paddingRight="30dip"
+                    android:singleLine="true"
+                    android:fontFamily="@font/forntstyle"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+
+                    />
+                <Button
+                    android:id="@+id/check_out"
+                    android:layout_width="350dp"
+                    android:layout_height="90dp"
+                    android:text="Visitor-Out"
+                    android:layout_below="@+id/check_in"
+                    android:textSize="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:textAllCaps="false"
+                    android:drawableRight="@drawable/checkout"
+                    android:drawablePadding="2dip"
+                    android:paddingRight="30dip"
+                    android:background="@drawable/btn_check"
+                    android:singleLine="true"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/forntstyle"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    />
+
+
+
+
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical"
+            android:background="@drawable/gradientcolor"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Powered by exzaTech Consulting and Services Pvt Ltd."
+                    android:textSize="22dp"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/forntstyle"
+                    />
+
+        </LinearLayout>
+
+
+</RelativeLayout>
+
+
