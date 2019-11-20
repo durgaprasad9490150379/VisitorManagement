@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ededed"
+    android:gravity="center"
+
+    tools:ignore="MissingDefaultResource">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logomain" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_below="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Checked-In Successfully!!!"
+            android:textSize="30dp"
+            android:textColor="#000000"/>
+
+        <ImageView
+            android:id="@+id/tick"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/status"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/check" />
+
+        <TextView
+            android:id="@+id/says"
+            android:layout_below="@+id/tick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thank you"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000000"
+            android:textSize="50sp"/>
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientcolor"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyname"
+            android:textSize="22sp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/forntstyle"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+    <!--    android:drawableRight="@drawable/checkin"-->
+    <!--    android:drawablePadding="2dip"-->
+    <!--    android:paddingRight="30dip"-->
+
+

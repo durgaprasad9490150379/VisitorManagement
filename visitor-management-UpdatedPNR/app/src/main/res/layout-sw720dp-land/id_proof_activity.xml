@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="center_horizontal"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -28,23 +29,22 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Please select ID"
-        android:layout_marginTop="50dp"
-        android:textSize="30sp"/>
+
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/IDProof"
+        android:layout_below="@+id/header"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="50dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Title"
-        android:textSize="25dp"
+        android:hint="Id Proof type"
+        android:textSize="30dp"
         app:met_floatingLabel="normal"
-        android:textColorHint="#CFD8DC"
+        android:textColorHint="#000000"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
         android:layout_marginRight="5dp"
-        android:gravity="center"
+        android:layout_centerHorizontal="true"
         app:met_floatingLabelTextSize="20dp"
         app:hintTextAppearance="@style/text_in_layout_hint_Style"
 
@@ -52,35 +52,44 @@
 
     <ImageView
         android:id="@+id/image_capture_govt"
+        android:layout_below="@+id/IDProof"
         android:layout_width="match_parent"
         android:layout_marginTop="40dp"
-        android:layout_height="200dp"
-        android:src="@drawable/cameratransparent"
+        android:layout_marginBottom="40dp"
+        android:layout_height="300dp"
+        android:src="@drawable/camera_icon"
         />
     <Button
         android:id="@+id/Take_picture_of_ID"
-        android:layout_width="350dp"
+        android:layout_below="@+id/image_capture_govt"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_height="wrap_content"
         android:background="@drawable/otp_btn"
-        android:text="Capture Govt ID"
-        android:layout_below="@+id/image_capture_govt"
+        android:text="Capture Id Proof"
         android:layout_marginTop="20dp"
         android:textSize="30dp"
         android:textColor="@android:color/white"
         android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
         />
     <Button
         android:id="@+id/next_to_API"
-        android:layout_width="350dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@drawable/otp_btn"
-        android:text="Next"
-
+        android:text="Continue"
         android:layout_below="@+id/image_capture_govt"
         android:textSize="30dp"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
         android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
         />
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -107,5 +116,6 @@
 
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+
+</RelativeLayout>
 

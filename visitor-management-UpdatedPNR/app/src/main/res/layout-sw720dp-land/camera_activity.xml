@@ -37,8 +37,8 @@
         <ImageView
             android:id="@+id/image_capture"
             android:layout_width="match_parent"
-            android:layout_marginTop="40dp"
-            android:layout_height="400dp"
+            android:layout_marginTop="80dp"
+            android:layout_height="300dp"
             android:src="@drawable/camera_icon"
             />
 
@@ -67,7 +67,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/otp_btn"
-            android:text="Next"
+            android:text="Continue"
             android:layout_marginTop="100dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/image_capture"
