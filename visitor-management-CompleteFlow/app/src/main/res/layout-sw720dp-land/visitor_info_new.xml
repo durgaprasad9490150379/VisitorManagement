@@ -79,21 +79,22 @@
                 android:textColor="@android:color/black"
                 app:met_floatingLabelTextSize="0sp"
                 app:backgroundTint="#000000"
-                app:theme="@style/ThemeSpinner"
+                app:met_underlineColor="@android:color/black"
+                app:met_primaryColor= "@android:color/black"
                 android:backgroundTint="#000000"
 
                 />
 
 
-<!--            <ImageView-->
-<!--                android:id="@+id/name_icon"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_below="@+id/heading"-->
-<!--                android:layout_centerInParent="true"-->
-<!--                android:layout_marginTop="40dp"-->
-<!--                android:layout_toRightOf="@+id/material_spinner1"-->
-<!--                android:src="@drawable/name1" />-->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/name_icon"-->
+            <!--                android:layout_width="60dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_below="@+id/heading"-->
+            <!--                android:layout_centerInParent="true"-->
+            <!--                android:layout_marginTop="40dp"-->
+            <!--                android:layout_toRightOf="@+id/material_spinner1"-->
+            <!--                android:src="@drawable/name1" />-->
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -346,40 +347,40 @@
                 android:textStyle="bold" />
 
 
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/subject"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/organization"-->
-<!--                android:layout_marginTop="0dp"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:hint="Meeting Purpose"-->
-<!--                app:hintTextAppearance="@style/text_in_layout_hint_Style">-->
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/subject"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@+id/organization"-->
+            <!--                android:layout_marginTop="0dp"-->
+            <!--                android:gravity="center_horizontal"-->
+            <!--                android:hint="Meeting Purpose"-->
+            <!--                app:hintTextAppearance="@style/text_in_layout_hint_Style">-->
 
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/subject_txt"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/forntstyle"-->
-<!--                    android:inputType="text"-->
-<!--                    android:maxLines="1"-->
-<!--                    android:scrollHorizontally="true"-->
-<!--                    android:textSize="30dp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/subject_txt"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/forntstyle"-->
+            <!--                    android:inputType="text"-->
+            <!--                    android:maxLines="1"-->
+            <!--                    android:scrollHorizontally="true"-->
+            <!--                    android:textSize="30dp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/validateSubject"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@+id/subject_txt"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    android:fontFamily="@font/forntstyle"-->
-<!--                    android:text=""-->
-<!--                    android:textColor="@android:color/holo_red_dark"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/validateSubject"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_below="@+id/subject_txt"-->
+            <!--                    android:layout_centerHorizontal="true"-->
+            <!--                    android:fontFamily="@font/forntstyle"-->
+            <!--                    android:text=""-->
+            <!--                    android:textColor="@android:color/holo_red_dark"-->
+            <!--                    android:textSize="20dp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <Button
@@ -429,143 +430,6 @@
     </LinearLayout>
 
 </RelativeLayout>
-
-
-
-
-
-    <!--<com.google.android.material.textfield.TextInputLayout-->
-
-    <!--android:id="@+id/fname_txt"-->
-    <!--android:layout_below="@+id/heading"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="15dp"-->
-    <!--android:layout_marginBottom="5dp"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
-    <!--    >-->
-
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-    <!--    android:id="@+id/f_name_txt"-->
-    <!--    android:layout_width="450dp"-->
-    <!--    android:layout_height="70dp"-->
-    <!--    android:textSize="30dp"-->
-    <!--    android:hint=" First Name"-->
-    <!--    android:textColor="#000000"-->
-    <!--    android:background="@drawable/curves"/>-->
-
-
-
-    <!--</com.google.android.material.textfield.TextInputLayout>-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/validateFirstName"-->
-    <!--android:layout_below="@+id/fname_txt"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=""-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:textSize="20dp"-->
-    <!--android:textColor="@android:color/holo_red_dark"-->
-    <!--    />-->
-
-
-
-    <!--<com.google.android.material.textfield.TextInputLayout-->
-
-    <!--android:id="@+id/lname_txt"-->
-    <!--android:layout_below="@+id/validateFirstName"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="5dp"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
-    <!--    >-->
-
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-    <!--    android:id="@+id/l_name_txt"-->
-    <!--    android:layout_width="450dp"-->
-    <!--    android:layout_height="70dp"-->
-    <!--    android:textSize="30dp"-->
-    <!--    android:hint=" Last Name"-->
-    <!--    android:textColor="#000000"-->
-    <!--    android:background="@drawable/curves"/>-->
-
-
-
-    <!--</com.google.android.material.textfield.TextInputLayout>-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/validateLastName"-->
-    <!--android:layout_below="@+id/lname_txt"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=""-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:textSize="20dp"-->
-    <!--android:textColor="@android:color/holo_red_dark"-->
-    <!--    />-->
-
-
-
-    <!--<com.google.android.material.textfield.TextInputLayout-->
-
-    <!--android:id="@+id/email"-->
-    <!--android:layout_below="@+id/validateLastName"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="5dp"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
-    <!--    >-->
-
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-    <!--    android:id="@+id/email_txt"-->
-    <!--    android:layout_width="450dp"-->
-    <!--    android:layout_height="70dp"-->
-    <!--    android:textSize="30dp"-->
-    <!--    android:hint=" Email"-->
-    <!--    android:textColor="#000000"-->
-    <!--    android:background="@drawable/curves"/>-->
-
-
-
-    <!--</com.google.android.material.textfield.TextInputLayout>-->
-    <!--<TextView-->
-    <!--android:id="@+id/validateEmail"-->
-    <!--android:layout_below="@+id/email"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=""-->
-    <!--android:textColor="@android:color/holo_red_dark"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:textSize="20dp"/>-->
-
-
-
-    <!--<Button-->
-
-
-
-    <!--<com.google.android.material.textfield.TextInputLayout-->
-    <!--android:layout_below="@+id/next"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="12dp"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
-    <!--android:hint="Filled box(default)">-->
-
-    <!--<com.google.android.material.textfield.TextInputEditText-->
-    <!--    android:layout_width="450dp"-->
-    <!--    android:layout_height="70dp"-->
-    <!--    android:textSize="30dp"-->
-    <!--    />-->
-
-    <!--</com.google.android.material.textfield.TextInputLayout>-->
-
-
 
 
 

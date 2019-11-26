@@ -33,9 +33,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.rilixtech.widget.countrycodepicker.Country;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
-import java.io.ByteArrayOutputStream;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class VisitorActivity extends AppCompatActivity {
 
@@ -117,21 +114,21 @@ public class VisitorActivity extends AppCompatActivity {
 
 
 
-        subject_object.setOnTouchListener(new View.OnTouchListener() {
-
-            public boolean onTouch(View view, MotionEvent event) {
-                // TODO Auto-generated method stub
-                if (view.getId() ==R.id.subject_txt) {
-                    view.getParent().requestDisallowInterceptTouchEvent(true);
-                    switch (event.getAction()&MotionEvent.ACTION_MASK){
-                        case MotionEvent.ACTION_UP:
-                            view.getParent().requestDisallowInterceptTouchEvent(false);
-                            break;
-                    }
-                }
-                return false;
-            }
-        });
+//        subject_object.setOnTouchListener(new View.OnTouchListener() {
+//
+//            public boolean onTouch(View view, MotionEvent event) {
+//                // TODO Auto-generated method stub
+//                if (view.getId() ==R.id.subject_txt) {
+//                    view.getParent().requestDisallowInterceptTouchEvent(true);
+//                    switch (event.getAction()&MotionEvent.ACTION_MASK){
+//                        case MotionEvent.ACTION_UP:
+//                            view.getParent().requestDisallowInterceptTouchEvent(false);
+//                            break;
+//                    }
+//                }
+//                return false;
+//            }
+//        });
 
 
 
@@ -240,24 +237,24 @@ public class VisitorActivity extends AppCompatActivity {
 
 
 
-                    sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                    editor.putString("FirstName", name);
-                    editor.putString("Email", email);
-                    editor.putString("Company", company);
-                    editor.putString("Purpose",purpose);
-                    editor.putString("MeetWoom", meet_whoom);
+                editor.putString("FirstName", name);
+                editor.putString("Email", email);
+                editor.putString("Company", company);
+                editor.putString("Purpose",purpose);
+                editor.putString("MeetWoom", meet_whoom);
 //                    editor.putString("State", state);
 //                    editor.putString("Country", CountryName);
 //                    editor.putString("City", City);
 //                    editor.putString("Address", Address);
-                    editor.putString("status", status);
-                    editor.commit();
-                    Intent cameraIntent = new Intent(VisitorActivity.this, IdProofActivity1.class);
-                    // Start the new activity
-                    startActivity(cameraIntent);
+                editor.putString("status", status);
+                editor.commit();
+                Intent cameraIntent = new Intent(VisitorActivity.this, IdProofActivity1.class);
+                // Start the new activity
+                startActivity(cameraIntent);
 
             }
 
@@ -268,10 +265,10 @@ public class VisitorActivity extends AppCompatActivity {
     public final boolean validateEmail(){
         String target = email;
         if (TextUtils.isEmpty(target)) {
-                return false;
-            } else {
-                return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
-            }
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
     }
     private void changeStatusBarColor(String color){
         if (Build.VERSION.SDK_INT >= 21) {
@@ -279,7 +276,7 @@ public class VisitorActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(color));
-           // window.setNavigationBarColor(Color.parseColor(color));
+            // window.setNavigationBarColor(Color.parseColor(color));
         }
     }
 

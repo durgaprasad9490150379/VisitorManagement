@@ -89,7 +89,7 @@ public interface RetrofitInterface {
     Call<String> getVisitorDetails(@Path("contactno") String contactno);
 
     @Headers({"Content-Type: application/json;charset=Utf-8"})
-    @POST("updatevisitorsdetails")
+    @PUT("updatevisitorsdetails")
     Call<Object> updateExisting(@Body JsonObject fields);
 
 }

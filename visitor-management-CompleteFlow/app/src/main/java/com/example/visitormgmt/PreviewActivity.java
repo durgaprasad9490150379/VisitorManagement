@@ -42,12 +42,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.google.gson.JsonObject;
-//import com.google.zxing.BarcodeFormat;
-//import com.google.zxing.MultiFormatWriter;
-//import com.google.zxing.common.BitMatrix;
-//import com.journeyapps.barcodescanner.BarcodeEncoder;
-//
-//import org.w3c.dom.Document;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import org.w3c.dom.Document;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -113,6 +113,23 @@ public class PreviewActivity extends AppCompatActivity {
 
         //[Geting data which is entered by user using shared preferences which is stored previous page]
 
+//
+//        editor.putString("status", "Mr");
+//        editor.putString("FirstName", name_object.getText().toString());
+//        editor.putString("LastName", "sss");
+//        editor.putString("Email", email_object.getText().toString());
+////                editor.putString("State", state_object.getText().toString());
+////                editor.putString("Country", country_object.getText().toString());
+////                editor.putString("City", city_object.getText().toString());
+////                editor.putString("Address", address_object.getText().toString());
+//        editor.putString("Company", organization_object.getText().toString());
+//        editor.putString("Purpose", purpose);
+//        editor.putString("MeetWhom", meetwhom_object.getText().toString());
+//        editor.putString("Existing", "0");
+//        editor.commit();
+//
+//
+
 
         sharedpreferences =  getSharedPreferences("MyPrefs", MODE_PRIVATE);
         status =  sharedpreferences.getString("status", "");
@@ -126,26 +143,16 @@ public class PreviewActivity extends AppCompatActivity {
         meet_whom = sharedpreferences.getString("MeetWoom", "");
 
         sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
         SharedPreferences.Editor editor = sharedpreferences.edit();
-
-        editor.clear();
+        editor.clear();  // Clearing Shared Preferences
         editor.apply();
 
-       System.out.print(image);
+        System.out.print(image);
 
-        /*  city = sharedpreferences.getString("City", "");
-        address = sharedpreferences.getString("Address", "");
-        state = sharedpreferences.getString("State", "");
-        country = sharedpreferences.getString("Country", "");*/
 
-      /*  image_path = sharedpreferences.getString("ImagePath", "");
-        idproof_path = sharedpreferences.getString("IdProofPath", "");*/
+        updateVisitorDetails();  // Calling updateVisitorDetails API
 
-        //calling APi To update database with visitor details
-        //createPost();
-        updateVisitorDetails();
-
+        //For Auto redirection to first page
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
@@ -154,88 +161,27 @@ public class PreviewActivity extends AppCompatActivity {
                 startActivity(mainIntent);
                 finish();
             }
-        }, 10000);
-
-
-        /*if(sharedpreferences.getString("Existing", "").equals("0")){
-         updateVisitorDetails();
-
-
-        } else {
-            createPost();
-        }
-        if(userExistingOrNot == 1){
-           // createPostVisitInfo(visitor_id);
-        } else {
-        }*/
-
-
-        //[updating QR code function] //[Geting data which is entered by user using shared preferences which is stored previous page]
-        //UpdateQRCode();
-
-         //img_src = StringToBitMap(image);
-        //id_src = StringToBitMap(idproof);
-
-
-        //img2.setImageBitmap(id_src);
-/*
-        Button print = (Button) findViewById(R.id.print);
-        print.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Log.e("MYAPP", "response I am in pdf creation function" );
-
-                llPdf = (RelativeLayout) findViewById(R.id.preview_activity);
-
-                Log.d("size"," "+llPdf.getWidth() +"  "+llPdf.getWidth());
-                bitmap = loadBitmapFromView(llPdf, llPdf.getWidth(), llPdf.getHeight());
-
-                if (Build.VERSION.SDK_INT >= 23) {
-                    String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                    if (ContextCompat.checkSelfPermission(PreviewActivity.this,Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions((Activity) PreviewActivity.this, PERMISSIONS, REQUEST );
-                    } else {
-                        //do here
-                        createPdf();
-                    }
-                }else{
-                    createPdf();
-                }
-
-            }
-        });*/
-
+        }, 5000);
 
 
     }
 
-    public Bitmap StringToBitMap(String image){
-        try{
-            byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
-            Bitmap bitmap1= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap1;
-        }catch(Exception e){
-            e.getMessage();
-            return null;
+
+
+    //Generating QR Code
+    private void UpdateQRCode() {
+        String dataInQRCode = fname + "\n" + "\n" + mobile;
+        try {
+            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+            BitMatrix bitMatrix = multiFormatWriter.encode(dataInQRCode, BarcodeFormat.QR_CODE, 400, 400);
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+            img1.setImageBitmap(bitmap);
+
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
     }
-
-
-
-//    private void UpdateQRCode() {
-//        String dataInQRCode = fname + "\n" + "\n" + mobile;
-//        try {
-//            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-//            BitMatrix bitMatrix = multiFormatWriter.encode(dataInQRCode, BarcodeFormat.QR_CODE, 400, 400);
-//            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-//            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-//            img1.setImageBitmap(bitmap);
-//
-//        } catch (Exception e) {
-//            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-//        }
-//    }
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {
         Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -300,80 +246,7 @@ public class PreviewActivity extends AppCompatActivity {
 
     }*/
 
-    private void createPost() {
 
-        Log.e("MYAPP", "response I am in createPost function" );
-        System.out.print(">>>>>>>>>>>>>>>>>>>>>>>>> Enter in function create post");
-
-
-        OkHttpClient client1 = new OkHttpClient.Builder()
-                .connectTimeout(1000, TimeUnit.SECONDS)
-                .readTimeout(1000,TimeUnit.SECONDS).build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .client(client1)
-                .baseUrl(RetrofitInterface.BASEURL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ApiInterfaceObject = retrofit.create(RetrofitInterface.class);
-
-
-        JsonObject fields = new JsonObject();
-//        fields.addProperty("lastName", lname);
-        fields.addProperty("status", status);
-        fields.addProperty("name", fname);
-        fields.addProperty("contactno",mobile );
-        fields.addProperty("address", address);
-        fields.addProperty("organization", company);
-        fields.addProperty("purpose", purpose);
-        fields.addProperty("contactPerson", meet_whom);
-        fields.addProperty("emailId", email1 );
-        fields.addProperty("idProof", "gggggghg");
-        fields.addProperty("country", country);
-        fields.addProperty("city", city);
-        fields.addProperty("state", state);
-        fields.addProperty("pic", "zzaswefwef");
-        fields.addProperty("expecteddate", "12:23:34");
-        fields.addProperty("expectedtime", "12:23:34");
-
-
-
-
-
-
-        Call<Object> call = ApiInterfaceObject.createPost(fields);
-
-        call.enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-
-                Log.e("MYAPP", "Failed to create" + response.code() );
-
-                if (!response.isSuccessful()) {
-                    Log.e("MYAPP", "Failed to create" );
-                    return;
-                }else{
-                    System.out.print(">>>>>>>>>>>>>>>>>>>>>>>>>codeing" + response.code());
-                    Log.e("MYAPP", "created" );
-                    Log.e("MYAPP", "created" + response.body().toString());
-                    //createPostImage(visitorId, image_path, 0);
-                    //createPostImage(visitorId, idproof_path, 1);
-                    //createPostVisitInfo(visitorId);
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                Log.e("MYAPP", "failed" );
-                System.out.print(">>>>>>>>>>>>>>..Error");
-                t.printStackTrace();
-                System.out.print(">>>>>>>>>>>>>>..Error");
-            }
-        });
-
-
-    }
     private void updateVisitorDetails() {
 
 
@@ -394,6 +267,9 @@ public class PreviewActivity extends AppCompatActivity {
 
        JsonObject fields = new JsonObject();
 //        fields.addProperty("lastName", lname);
+
+        System.out.println("Request data is " + status + "  " +  fname + "  " + mobile + "  " + company + "  " + purpose + "  " + meet_whom + "  " + email1);
+
         fields.addProperty("status", status);
         fields.addProperty("name", fname);
         fields.addProperty("contactno",mobile );
@@ -401,8 +277,29 @@ public class PreviewActivity extends AppCompatActivity {
         fields.addProperty("purpose", purpose);
         fields.addProperty("contactPerson", meet_whom);
         fields.addProperty("emailId", email1 );
-        fields.addProperty("visitorpassPic", image);
-        fields.addProperty("visitorpassIdProof", idproof);
+        fields.addProperty("visitorpassPic", image );  //
+        fields.addProperty("visitorpassIdProof", idproof);  //idproof
+
+//
+//        {
+//            "status": "Mr.",
+//                "name": "kiran",
+//                "contactno": "9876543210",
+//                "address": "string",
+//                "organization": "eXzaTech",
+//                "purpose": "Personal",
+//                "contactPerson": "Manager",
+//                "emailId": "string",
+//                "country": "string",
+//                "city": "string",
+//                "state": "string",
+//                "visitorpassPic": "string",
+//                "visitorpassIdProof": "string",
+//                "expecteddate": "string",
+//                "expectedtime": "string",
+//                "checkoutdate": "string",
+//                "chekouttime": "string"
+//        }
 
        image = image.replace(" ", "");
        idproof = idproof.replace(" ", "");
@@ -419,14 +316,13 @@ public class PreviewActivity extends AppCompatActivity {
 
 
                 if (!response.isSuccessful()) {
+                    System.out.println("        Failure Response for UpdateVisitorDetails");
                     return;
                 }else{
                     System.out.print(">>>>>>>>>>>>>>>>>>>>>>>>>code" + response.code());
                     Log.e("MYAPP", "created" );
                     Log.e("MYAPP", "created" + response.body().toString());
-                    //createPostImage(visitorId, image_path, 0);
-                    //createPostImage(visitorId, idproof_path, 1);
-                    //createPostVisitInfo(visitorId);
+
                 }
 
             }

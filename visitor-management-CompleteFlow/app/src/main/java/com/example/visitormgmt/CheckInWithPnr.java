@@ -1,11 +1,13 @@
 package com.example.visitormgmt;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.*;
 
@@ -27,9 +30,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
-//import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import okhttp3.ResponseBody;
+import pub.devrel.easypermissions.EasyPermissions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,74 +42,135 @@ import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.zxing.Result;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-public class CheckInWithPnr extends AppCompatActivity {
+public class CheckInWithPnr extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
 
     private String PNRNumber, contents;
     EditText pnrText;
+
     SharedPreferences sharedpreferences;
-//    private ZXingScannerView mScannerView;
+    private ZXingScannerView mScannerView;
     public String status, f_name, email, contactPerson, contactno, organiation, purpose;
+
+    private IntentIntegrator qrScan;
+    private static final int CAMERA_REQUEST_CODE = 1;
+    private static final int CAMERA_PERMISSION_CODE = 1460;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeStatusBarColor("#40a7e5");
-        super.onCreate(savedInstanceState);
-//        mScannerView = new ZXingScannerView(CheckInWithPnr.this);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        super.onCreate(savedInstanceState);
+
+
+        //Setting layout for this page.
         setContentView(R.layout.checkin_with_visitor_id);
 
+
+        //Initilizing the object.
         Button search = (Button) findViewById(R.id.proceed);
         Button QRCODE = (Button) findViewById(R.id.qrcode);
         pnrText = (EditText) findViewById(R.id.visitorid_txt);
+        mScannerView = new ZXingScannerView(CheckInWithPnr.this);
+
+
 
         search.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
+                // Getting the visitorID which is entered  by the visitor.
                 PNRNumber = pnrText.getText().toString();
+
+                /*Checking the ViisitorID is empty or not, If it is empty setting the
+                  error message to the UI.
+                 */
+
                 if (PNRNumber.isEmpty()) {
                     TextView Error = (TextView) findViewById(R.id.validateVisId);
                     Error.setText("Please enter PNR");
                     return;
+                } else {
+                    /* If the visitorID is not empty then calling the API.
+                       to check whether the VisitorID is existing or not.
+                     */
+                    CheckPNRInAPI();
                 }
-
-                CheckPNRInAPI();
-
             }
         });
 
+        // Creating the OnClickListener for QRCode scanner button.
         QRCODE.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(
-                        "com.google.zxing.client.android.SCAN");
-                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-                startActivityForResult(intent, 0);
+
+                if (EasyPermissions.hasPermissions(CheckInWithPnr.this, Manifest.permission.CAMERA)) {
+
+                    // Creating the object for Zxing to scan the QRCode.
+                    mScannerView = new ZXingScannerView(CheckInWithPnr.this);
+                    // Set the scanner view as the content view.
+                    setContentView(mScannerView);
+                    // The camera is started to scan the QRCode.
+                    mScannerView.startCamera();
+                    // Setting the result handler to handle the result that getting from the QRCode.
+                    mScannerView.setResultHandler(CheckInWithPnr.this);
+
+                } else {
+
+                    //If permission is not present request for the same.
+                    EasyPermissions.requestPermissions(CheckInWithPnr.this, getString(R.string.permission_text), CAMERA_PERMISSION_CODE, Manifest.permission.CAMERA);
+                }
+
+
 //
             }
         });
     }
 
+    /* The request camera permission will return to onRequestPermissionsResult
+       After asking the permission for camera the and comparing the result code */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CAMERA_PERMISSION_CODE: {
 
-    public void CheckPNRInAPI() {
+                /* If the camera permission is granted the QRcode scanner will start*/
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-        loadJSON();
-
+                    // Creating the object for Zxing to scan the QRCode.
+                    mScannerView = new ZXingScannerView(CheckInWithPnr.this);
+                    // Set the scanner view as the content view
+                    setContentView(mScannerView);
+                    // The camera is started to scan the QRCode.
+                    mScannerView.startCamera();
+                    // Setting the result handler to handle the result that getting from the QRCode.
+                    mScannerView.setResultHandler(CheckInWithPnr.this);
+                } else {
+                    /* If the camera permission is not acceepted the error meassage will display*/
+                    Toast.makeText(CheckInWithPnr.this, "The app was not allowed to read your store.", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
 
-    private void loadJSON() {
+
+
+
+    private void CheckPNRInAPI() {
 
         Log.e("MYAPP", "pnr " + PNRNumber);
 
@@ -112,11 +178,19 @@ public class CheckInWithPnr extends AppCompatActivity {
                 .baseUrl(RetrofitInterface.BASEURL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
+        /* Creating the object of retrofit interface*/
         RetrofitInterface request = retrofit.create(RetrofitInterface.class);
+        //Calling the API by passing the visitorID that entered by the use.
         Call<String> call = request.getPNRDetails(PNRNumber);
         call.enqueue(new Callback<String>() {
+
+            /*If the result is sucessfull the onResponse will call otherwise onFailure function
+               will call.
+             */
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+
+                /* Reading the data from the response*/
 
                 try {
                     String jsonresponse = response.body().toString();
@@ -144,6 +218,8 @@ public class CheckInWithPnr extends AppCompatActivity {
                         Log.e("MYAPP", "reponse" + f_name);
 
 
+                        //Opening the sharedPrefences and saving the data that get from API
+                        //To use it in another activity
                         sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
                         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -160,12 +236,15 @@ public class CheckInWithPnr extends AppCompatActivity {
                         editor.apply();
 
 
+                        /* After saving the data we will pass it to OTP activity and sending the OTP to the user*/
                         Intent InvitedVisitor = new Intent(CheckInWithPnr.this, OTPActivity.class);
 
                         // Start the new activity
                         startActivity(InvitedVisitor);
                     } else {
-                        TextView Error = (TextView) findViewById(R.id.validateVisId);
+
+                        /* If the PNR does not exist the Error message will display*/
+                        TextView Error = (TextView) findViewById(R.id.validateVisId);;
                         Error.setText("PNR Does not exist");
                     }
 
@@ -174,7 +253,6 @@ public class CheckInWithPnr extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Log.e("MYAPP", "response " + response.body().toString());
             }
 
             @Override
@@ -187,7 +265,7 @@ public class CheckInWithPnr extends AppCompatActivity {
 
     }
 
-
+    // Function to chage the colour of status bar.
     private void changeStatusBarColor(String color) {
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = getWindow();
@@ -198,56 +276,39 @@ public class CheckInWithPnr extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    public void handleResult(Result result) {
-//
-//        // Do something with the result here
-//
-//        Log.v("TAG", result.getText()); // Prints scan results
-//        // Prints the scan format (qrcode, pdf417 etc.)
-//        Log.v("TAG", result.getBarcodeFormat().toString());
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Scan Result");
-//        builder.setMessage(result.getText());
-//        AlertDialog alert1 = builder.create();
-//        alert1.show();
-//
-//        // If you would like to resume scanning, call this method below:
-//        mScannerView.resumeCameraPreview(CheckInWithPnr.this);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        // Register ourselves as a handler for scan results.
-//        mScannerView.setResultHandler(CheckInWithPnr.this);
-//        // Start camera on resume
-//        mScannerView.startCamera();
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        // Stop camera on pause
-//        mScannerView.stopCamera();
-//    }
-//
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//
-//        super.onActivityResult(requestCode, resultCode, intent);
-//        if (requestCode == 0) {
-//            if (resultCode == RESULT_OK) {
-//
-//
-//                contents = intent.getStringExtra("SCAN_RESULT"); // This will contain your scan result
-//                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-//
-//
-//            }
-//        }
-//
-//    }
+    @Override
+    public void handleResult(Result result) {
+
+        PNRNumber = result.getText();
+        CheckInWithQRCode();
+    }
+
+    private void CheckInWithQRCode() {
+        setContentView(R.layout.checkin_with_visitor_id);
+        CheckPNRInAPI();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Register ourselves as a handler for scan results.
+        mScannerView.setResultHandler(CheckInWithPnr.this);
+        // Start camera on resume
+        mScannerView.startCamera();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Stop camera on pause
+        mScannerView.stopCamera();
+    }
+
+    @Override
+    public void onStop() {
+        mScannerView.stopCamera();
+        super.onStop();
+    }
 
 }
 

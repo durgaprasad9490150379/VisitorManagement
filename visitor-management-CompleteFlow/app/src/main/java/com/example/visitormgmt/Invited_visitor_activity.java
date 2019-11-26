@@ -36,7 +36,8 @@ public class Invited_visitor_activity extends AppCompatActivity {
     
     String[] SPINNER_DATA = {"Mr.","Mrs.","Ms."};
 
-    TextInputEditText name_object, mobile_object, email_object, organization_object, comapny_object,  meetwhom_object, purpose_object;
+    TextInputEditText name_object, mobile_object, email_object, organization_object, comapny_object,  meetwhom_object;
+    EditText purpose_object;
     public String fname, mobile, email1,company
             , purpose, meet_whom, visitor_id, status ;
 
@@ -46,9 +47,10 @@ public class Invited_visitor_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeStatusBarColor("#40a7e5");
+        setContentView(R.layout.visitor_info_existing);
         super.onCreate(savedInstanceState);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setContentView(R.layout.visitor_info_existing);
+//        setContentView(R.layout.visitor_info_existing);
 
         materialBetterSpinner = (MaterialBetterSpinner)findViewById(R.id.material_spinner1);
 
@@ -63,8 +65,7 @@ public class Invited_visitor_activity extends AppCompatActivity {
         email_object = (TextInputEditText) findViewById(R.id.email_txt);
         organization_object = (TextInputEditText) findViewById(R.id.organization_txt);
         meetwhom_object = (TextInputEditText) findViewById(R.id.meet_whom_txt);
-        comapny_object = (TextInputEditText) findViewById(R.id.organization_txt);
-        purpose_object = (TextInputEditText) findViewById(R.id.subject_txt);
+        purpose_object = (EditText) findViewById(R.id.subject_txt);
 
 
         FirstNameErrorMessage = (TextView) findViewById(R.id.validateName);
@@ -87,6 +88,9 @@ public class Invited_visitor_activity extends AppCompatActivity {
         company = sharedpreferences.getString("Company", "");
         purpose = sharedpreferences.getString("Purpose", "");
         meet_whom = sharedpreferences.getString("MeetWoom", "");
+
+
+        System.out.println("Company name from API" + company);
 
         name_object.setText(fname);
         mobile_object.setText(mobile);
@@ -115,6 +119,7 @@ public class Invited_visitor_activity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
 
+                System.out.println("Company name from API" + company);
 
 
                 if(name_object.getText().toString().isEmpty()){
@@ -129,7 +134,7 @@ public class Invited_visitor_activity extends AppCompatActivity {
                     EmailErrormessage.setText("Invalid Email");
                     return;
                 }
-                if(comapny_object.getText().toString().isEmpty()){
+                if(organization_object.getText().toString().isEmpty()){
                     OranizationErrorMessage.setVisibility(View.VISIBLE);
                     OranizationErrorMessage.setText("Field cannot be empty");
                     return;

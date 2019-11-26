@@ -34,7 +34,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
-//import com.google.android.gms.vision.text.Text;
+import com.google.android.gms.vision.text.Text;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.io.ByteArrayOutputStream;

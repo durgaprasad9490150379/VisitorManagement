@@ -103,21 +103,23 @@ public class OTPActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
-                /* Reading OTP that entered by te user*/
-
+                //  Reading OTP that entered by te user
                 Enterotp = (editText1.getText().toString() +editText2.getText().toString() +editText3.getText().toString() +editText4.getText().toString()
                         + editText5.getText().toString() + editText6.getText().toString());
 
-               /*Hadrd coded for OTP verification*/
+               // Hadrd coded for OTP verification
                 VerificationId = "111111";
-
+                // Verifying the OTP
                 if(Enterotp.equals(VerificationId)) {
 
                     Log.d("myTag", "user phone " + userPhone + "Empty");
 
                     Log.d("myTag", "phone number " + phoneNumber + "Empty");
+
+
+//                    Intent visitorIntent = new Intent(OTPActivity.this, VisitorActivity.class);
+//                    //start the new activity
+//                    startActivity(visitorIntent);
 
                     if (sharedpreferences.getInt("ExistingUser", 0) == 0) {
 
@@ -131,7 +133,6 @@ public class OTPActivity extends AppCompatActivity {
                         getVisitorsByMobileNumer();
 
                         Log.e("myApp", "after by mobile function" + exist);
-
 
                     }
                 }
@@ -148,13 +149,17 @@ public class OTPActivity extends AppCompatActivity {
         resendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //for clearing otp text boxes
                 editText1.setText("");
                 editText2.setText("");
                 editText3.setText("");
                 editText4.setText("");
                 editText5.setText("");
                 editText6.setText("");
+
+                //for moving cursor to first position
+                editText1.requestFocus();
+
 
             }
 
@@ -189,7 +194,6 @@ public class OTPActivity extends AppCompatActivity {
                         Log.e("myApp", "API called" + statusCode);
 
                         if(statusCode == 200) {
-                            exist = 1;
                             JSONArray dataArray = dataobj.getJSONArray("contactdetails");
                             JSONObject originalData = dataArray.getJSONObject(0);
                             status = originalData.getString("status");

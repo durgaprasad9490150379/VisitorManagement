@@ -66,17 +66,20 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
     public String visitor_id;
 
     SharedPreferences sharedpreferences;
-
-
     Button captureImage, nextToGovt;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        /*Calling the function to change the color of satus bar*/
         changeStatusBarColor("#40a7e5");
+        // Setting the orentation to landscape mode only
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera_activity);
+
+        /*Creating the object of text and image views*/
+
         this.imageView = (ImageView) this.findViewById(R.id.image_capture);
 
         captureImage = (Button) findViewById(R.id.CamptureImage);
@@ -103,29 +106,13 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
         nextToGovt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                sharedpreferences =  getSharedPreferences("MyPrefs", MODE_PRIVATE);
-//
-//                String existig = sharedpreferences.getString("Existing","");
+                /* Changing the activity from camera activity to
+                   final page.
+                 */
 
                 Intent Preview = new Intent(CameraActivity.this, PreviewActivity.class);
 
                 startActivity(Preview);
-
-
-
-               /* if(existig.equals("0")){
-
-                    Intent Preview = new Intent(CameraActivity.this, PreviewActivity.class);
-
-                    startActivity(Preview);
-
-
-                }else {
-                    Intent IdActivity = new Intent(CameraActivity.this, CompanyDetailsActivity.class);
-
-                    startActivity(IdActivity);
-                }*/
 
             }
         });
@@ -175,25 +162,24 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
             bmOptions.inSampleSize = 4;
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
+            //Converting Bitmap to string
             String base64 = bitmapToBase64(bitmap);
+            //Image set to imageview in layout
+            imageView.setImageBitmap(bitmap);
 
-            Bitmap bit = StringToBitMap(base64);
-
-            imageView.setImageBitmap(bit);
-            System.out.println(">>>>>>>>> ");
-            System.out.print(base64);
-            System.out.println(">>>>>>>>> ");
-
-
+            /*String of image is storing in sharedpreferences to carry it to
+            last page to post it to Api*/
             sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString("UserImage",base64);
             editor.apply();
+            /*Changing  the buttons after taking the capture of image (Capture Image to Next button)*/
             captureImage.setVisibility(View.GONE);
             nextToGovt.setVisibility(View.VISIBLE);
         }
     }
 
+    //After getting the result from camera permissions
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -202,11 +188,13 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
+        //If permission is granted the camera will launch and visitor should take the photo.
         launchCamera();
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
+        //If the permissition is denied by the visitor the error meassage will show.
         Log.d(TAG, "Permission has been denied");
     }
 
@@ -217,8 +205,6 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
      * @throws IOException
      */
     private File createImageFile() throws IOException {
-        sharedpreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
 
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -233,12 +219,11 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
-        editor.putString("ImagePath", mCurrentPhotoPath);
 
-        editor.apply();
         return image;
     }
 
+    /* To change the colour of status bar*/
     private void changeStatusBarColor(String color){
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = getWindow();
@@ -249,17 +234,21 @@ public class CameraActivity extends AppCompatActivity implements EasyPermissions
         }
     }
 
+    /* Converting the Bitmap image to string using this function and it
+    will return the string
+     */
     private String bitmapToBase64(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         byte[] byteArray = byteArrayOutputStream .toByteArray();
         String result = Base64.encodeToString(byteArray, Base64.DEFAULT);
-//        String str = new String(byteArray);
-//        System.out.println(str);
         result = result.replaceAll("//s", "");
         return result;
     }
 
+    /*This function is used to convert the string to
+      original Bitmap. This function is not used anywhere in this activity
+     */
 
     public Bitmap StringToBitMap(String image){
         try{
