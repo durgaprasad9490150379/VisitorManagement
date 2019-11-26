@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.visitormgmt"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        systemProp.http.proxyHost=192.168.100.1
+//        systemProp.http.proxyPort=3128
+//        systemProp.http.proxyUser=durgaprasad
+//        systemProp.http.proxyPassword=Durga@123
+//        systemProp.http.auth.ntlm.domain=192.168.100.1
+//
+//        systemProp.https.proxyHost=192.168.100.1
+//        systemProp.https.proxyPort=3128
+//        systemProp.https.proxyUser=durgaprasad
+//        systemProp.https.proxyPassword=Durga@123
+//        systemProp.https.auth.ntlm.domain=192.168.100.1
+
+    }
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-firestore:21.2.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+//    implementation 'com.google.zxing:core:3.2.1'
+//    implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.itextpdf:itext-pdfa:5.5.10'
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.10'
+
+    implementation 'de.hdodenhof:circleimageview:1.2.1'
+
+    implementation 'pub.devrel:easypermissions:0.2.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'com.google.android.material:material:1.0.0'
+    //  Barcode reader package
+//    implementation 'com.google.android.gms:play-services-vision:11.8.0'
+
+//    implementation 'com.google.android.gms:play-services-gcm:+'
+//    implementation 'com.google.android.gms:play-services:8.4.0'
+//    implementation 'com.google.android.gms:play-services:8.4.0'
+
+    /*Add QR Zxing Library Here */
+//    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
+    /*country code picker*/
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
+
+
+    implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
+
+//    implementation 'com.android.support:design:24.0.0'
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9'
+}
+
+apply plugin: 'com.google.gms.google-services'

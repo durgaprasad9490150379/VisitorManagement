@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/IDProof"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="IdProof type"
+        android:textSize="30dp"
+        app:met_floatingLabel="normal"
+        android:textColorHint="#000000"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:layout_centerHorizontal="true"
+        app:met_floatingLabelTextSize="20dp"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+
+        />
+
+    <TextView
+        android:id="@+id/validateIdProof"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/IDProof"
+        android:text=""
+        android:textColor="@android:color/holo_red_light"
+        android:fontFamily="@font/forntstyle"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/image_capture_govt"
+        android:layout_below="@+id/validateIdProof"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_height="300dp"
+        android:src="@drawable/camera_icon"
+        />
+    <Button
+        android:id="@+id/Take_picture_of_ID"
+        android:layout_below="@+id/image_capture_govt"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Capture Id Proof"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/next_to_API"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/otp_btn"
+        android:text="Continue"
+        android:layout_below="@+id/image_capture_govt"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/forntstyle"
+        android:textStyle="bold"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical"
+            android:background="@drawable/gradientcolor"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/companyname"
+                android:textSize="22dp"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/forntstyle"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
+

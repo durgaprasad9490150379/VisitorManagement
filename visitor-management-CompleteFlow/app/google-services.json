@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "820953538546",
+    "firebase_url": "https://visitormanagement-dbfb0.firebaseio.com",
+    "project_id": "visitormanagement-dbfb0",
+    "storage_bucket": "visitormanagement-dbfb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820953538546:android:78ecc546747622a395d56b",
+        "android_client_info": {
+          "package_name": "com.example.visitormgmt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820953538546-plqqveqgep4purftgk2dnqbbkheetmqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.visitormgmt",
+            "certificate_hash": "5bddc910495d665ede0f3c6f802e9f3c926c2246"
+          }
+        },
+        {
+          "client_id": "820953538546-9uc8pblp86vvmd311fmjb1bbvifd8tik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_xzkF5WxvyPPWZ9WzKyV35rPMCaFjxYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820953538546-9uc8pblp86vvmd311fmjb1bbvifd8tik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">VisitorMgmt</string>
+    <string name="hint"><font size="20">Hint!</font></string>
+<!--    <String name="fname">First Name;</String>-->
+<!--    <String name="lname">Last Name</String>-->
+<!--    <String name="email">Email</String>-->
+<!--    <String name="mob_number">Mobile Number</String>-->
+    <string name="spinner_title">Select Category</string>
+    <string name="permission_text">This app needs access to your camera so that it can take pictures.</string>
+    <string name="companyname">Powered by eXzaTech Consulting and Services Pvt Ltd.</string>
+
+</resources>

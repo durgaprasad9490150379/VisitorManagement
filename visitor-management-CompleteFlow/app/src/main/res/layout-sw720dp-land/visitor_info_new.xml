@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:ignore="MissingDefaultResource">
+
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradientcolor">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/watermark"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/visitorScrool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_marginLeft="180dp"
+            android:layout_marginRight="180dp"
+            android:layout_marginBottom="45dp"
+            android:gravity="center">
+
+
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/forntstyle"
+                android:text="Please fill following information"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/material_spinner1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/heading"
+                android:layout_marginTop="46dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/forntstyle"
+                android:gravity="center"
+                android:hint="Mr."
+                android:textColorHint="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:met_floatingLabelTextSize="0sp"
+                app:backgroundTint="#000000"
+                app:theme="@style/ThemeSpinner"
+                android:backgroundTint="#000000"
+
+                />
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/name_icon"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_below="@+id/heading"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:layout_toRightOf="@+id/material_spinner1"-->
+<!--                android:src="@drawable/name1" />-->
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/heading"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/material_spinner1"
+                android:gravity="center_horizontal"
+                android:hint="Name"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:fontFamily="@font/forntstyle"
+                    android:drawableLeft="@drawable/name1"
+                    android:drawablePadding="8dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/validateName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/material_spinner1"
+                android:layout_below="@+id/name"
+                android:fontFamily="@font/forntstyle"
+                android:text=""
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:layout_below="@+id/validateName"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center_horizontal"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                android:hint="Email"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_txt"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:drawableLeft="@drawable/email1"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:scrollHorizontally="true"
+                    android:fontFamily="@font/forntstyle"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/validateEmail"
+                    android:layout_below="@+id/email_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/forntstyle"
+                    android:textStyle="bold"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobile"
+                android:layout_below="@+id/validateName"
+                android:layout_toRightOf="@+id/email"
+                android:layout_alignParentEnd="true"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                android:hint="Mobile"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobile_txt"
+                    android:layout_gravity="right"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:drawableLeft="@drawable/phone"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:scrollHorizontally="true"
+                    android:fontFamily="@font/forntstyle"
+                    android:textStyle="bold"
+                    android:focusable="false"
+                    android:clickable="false"
+                    />
+
+                <TextView
+                    android:id="@+id/validateMobile"
+                    android:layout_below="@+id/meet_whom_txt"
+                    android:layout_gravity="right"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/forntstyle"
+                    android:textStyle="bold"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/organization"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobile"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:hint="Organization"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/organization_txt"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:drawableLeft="@drawable/org1"
+                    android:fontFamily="@font/forntstyle"
+                    android:drawablePadding="10dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/validateOrg"
+                    android:layout_width="470dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/organization_txt"
+                    android:fontFamily="@font/forntstyle"
+                    android:text=""
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/meet_whom"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobile"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@+id/organization"
+                android:hint="MeetWhom"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/meet_whom_txt"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:drawableLeft="@drawable/contact_person"
+                    android:drawablePadding="10dp"
+                    android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:fontFamily="@font/forntstyle"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/validateMeetWhom"
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/meet_whom_txt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/forntstyle"
+                    android:text=""
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/subject_txt"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@+id/organization"
+                android:layout_marginTop="30dp"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:enabled="true"
+                android:minLines="1"
+                android:maxLines="6"
+                android:isScrollContainer="true"
+                android:textSize="30dp"
+                android:hint="Meeting Purpose"
+                android:background="@drawable/subject_box"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:gravity="top"
+                android:padding="10dp"
+                android:fontFamily="@font/forntstyle"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/validateSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subject_txt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/forntstyle"
+                android:text=""
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/subject"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/organization"-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:hint="Meeting Purpose"-->
+<!--                app:hintTextAppearance="@style/text_in_layout_hint_Style">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/subject_txt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/forntstyle"-->
+<!--                    android:inputType="text"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:scrollHorizontally="true"-->
+<!--                    android:textSize="30dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/validateSubject"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/subject_txt"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:fontFamily="@font/forntstyle"-->
+<!--                    android:text=""-->
+<!--                    android:textColor="@android:color/holo_red_dark"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/validateSubject"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="70dp"
+                android:background="@drawable/otp_btn"
+                android:fontFamily="@font/forntstyle"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradientcolor"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by eXzaTech Consulting and Services Pvt Ltd."
+            android:textSize="22dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/forntstyle"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/fname_txt"-->
+    <!--android:layout_below="@+id/heading"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/f_name_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" First Name"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/validateFirstName"-->
+    <!--android:layout_below="@+id/fname_txt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--    />-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/lname_txt"-->
+    <!--android:layout_below="@+id/validateFirstName"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/l_name_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" Last Name"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/validateLastName"-->
+    <!--android:layout_below="@+id/lname_txt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--    />-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+
+    <!--android:id="@+id/email"-->
+    <!--android:layout_below="@+id/validateLastName"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--    >-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:id="@+id/email_txt"-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    android:hint=" Email"-->
+    <!--    android:textColor="#000000"-->
+    <!--    android:background="@drawable/curves"/>-->
+
+
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+    <!--<TextView-->
+    <!--android:id="@+id/validateEmail"-->
+    <!--android:layout_below="@+id/email"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:textColor="@android:color/holo_red_dark"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textSize="20dp"/>-->
+
+
+
+    <!--<Button-->
+
+
+
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--android:layout_below="@+id/next"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="12dp"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--app:hintTextAppearance="@style/text_in_layout_hint_Style"-->
+    <!--android:hint="Filled box(default)">-->
+
+    <!--<com.google.android.material.textfield.TextInputEditText-->
+    <!--    android:layout_width="450dp"-->
+    <!--    android:layout_height="70dp"-->
+    <!--    android:textSize="30dp"-->
+    <!--    />-->
+
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+
+
+
+
+
+
